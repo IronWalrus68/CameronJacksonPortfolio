@@ -1,0 +1,47 @@
+:root{
+    --text-colour: rgb(255, 255, 255);
+}
+/* var(--text-colour) */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+h1, h5,
+p {
+    color: var(--text-colour);
+}
+
+.profilePicture {
+    border-radius: 50%;
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    object-position: center bottom;
+    border: 3px solid var(--text-colour);
+    box-shadow: 0 0 10px 5px rgba(209, 227, 221, 0.5)
+}
+
+.nav-link:hover{
+    color: rgba(255,255,255,0.5);
+    border-bottom-color:rgb(255, 255, 255);
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+    color: var(--text-colour, 0.8);
+    margin-left: 1rem;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.active1{
+    color: white;
+    border-bottom-color:white;
+}

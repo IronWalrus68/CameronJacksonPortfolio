@@ -1,0 +1,70 @@
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+@-webkit-keyframes bg-scrolling-reverse {
+  0% {
+    background-position: 50px 100px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  0% {
+    background-position: 50px 100px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  0% {
+    background-position: 50px 100px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  0% {
+    background-position: 50px 100px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  /* margin-top: 13.5rem; */
+  color: #999;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  text-align: center;
+  /* img size is 50x50 */
+  /* background: url("download.png") repeat 0 0; */
+  background: url("backgroundTile.png") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 2s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 2s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 2s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 2s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+.homeHeaderStyles{
+  color: white;
+}
+
