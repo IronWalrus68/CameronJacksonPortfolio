@@ -1,6 +1,18 @@
 <% layout('layouts/boilerplate')%>
 <audio controls autoplay>
-  <source src="Voicy_How To Rick Roll Someone.ogg" type="audio/ogg">
-  <source src="Voicy_How To Rick Roll Someone.mp3" type="audio/mpeg">
+  <source src="/rickroll/Voicy_How To Rick Roll Someone.ogg" type="audio/ogg">
+  <source src="/rickroll/Voicy_How To Rick Roll Someone.mp3" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.querySelector('audio');
+
+  audio.addEventListener('play', function() {
+    const image = document.createElement('img');
+    image.src = '/rickroll/rick-roll-rick-ashley.gif'; 
+    document.body.appendChild(image);
+  });
+});
+</script>
