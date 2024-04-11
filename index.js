@@ -8,6 +8,8 @@ const ejsMate = require('ejs-mate');
 const Joi = require('joi');
 const nodemailer = require('nodemailer')
 const rateLimit = require("express-rate-limit");
+const morgan = require('morgan');
+const axios = require('axios').default;
 
 // Middleware setup
 app.engine('ejs', ejsMate);
@@ -15,6 +17,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('combined'));
 
 // email ratelimter middleware 
 const emailLimiter = rateLimit({
@@ -40,10 +43,42 @@ app.get('/', (req, res) => {
     const title = 'Home'
     res.render('home', {title});
 });
-app.get('/blank', (req, res) => {
-    const title = 'blank'
+app.get('/blank', async (req, res) => {
+    const title = 'camj';
+    const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const userAgent = req.headers['user-agent'];
+    const currentTime = new Date().toISOString(); // Get current time in ISO format
+    
+    try {
+        // Fetch IP geolocation data
+        const ipInfoResponse = await axios.get(`https://ipinfo.io/${ipAddress}/json`);
+        const ipInfoData = ipInfoResponse.data;
+
+        // Log user information
+        console.log('User IP address:', ipAddress);
+        console.log('User-Agent:', userAgent);
+        console.log('Request time:', currentTime);
+        console.log('Geolocation:', ipInfoData);
+
+        // Perform proxy and VPN detection using IPHub API
+        const iphubApiKey = process.env.iphubApiKey;
+        const iphubResponse = await axios.get('http://v2.api.iphub.info/ip/' + ipAddress, {
+            headers: {
+                'X-Key': iphubApiKey
+            }
+        });
+        console.log('IPHub Response:', iphubResponse.data);
+
+        // Extract ISP information
+        const isp = ipInfoData.org || 'Unknown';
+        console.log('ISP:', isp);
+    } catch (error) {
+        console.error('Error fetching IP geolocation data:', error.message);
+    }
+
     res.render('blank', {title});
 });
+
 app.get('/portfolio', (req, res) => {
     const title = 'portfolio'
     res.render('portfolio/portfolio', {title});
