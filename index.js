@@ -45,9 +45,9 @@ app.get('/', (req, res) => {
 });
 app.get('/blank', async (req, res) => {
     const title = 'camj';
-    const ipAddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    const ipAddress = req.headers['x-forwarded-for']
     const userAgent = req.headers['user-agent'];
-    const currentTime = new Date().toISOString(); // Get current time in ISO format
+    const currentTime = new Date().toUTCString();
     
     try {
         // Fetch IP geolocation data
