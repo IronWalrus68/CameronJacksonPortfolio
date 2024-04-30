@@ -13,6 +13,7 @@ body {
 footer {
     margin-top: auto;
     text-align: center;
+    text-shadow: 1px 1px black;
 }
 
 .CopyRight {
@@ -56,10 +57,10 @@ footer {
     }
 
 .active{
-    color: white !important;
+    color: var(--text-colour) !important;
     border-bottom-color:white;
 }
 
 .socialsLink a{
-    color: gray;
+    color: var(--text-colour);
 }
