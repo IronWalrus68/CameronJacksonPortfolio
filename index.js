@@ -6,8 +6,7 @@ const app = express();
 const path = require('path');
 const ejsMate = require('ejs-mate');
 const Joi = require('joi');
-const nodemailer = require('nodemailer')
-const rateLimit = require("express-rate-limit");
+const Nodemailer = require('./utils/nodeMailer');
 
 // Middleware setup
 app.engine('ejs', ejsMate);
@@ -15,25 +14,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// email ratelimter middleware 
-const emailLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1, // limit each IP to 1 requests per windowMs
-  message: "Too many email requests created from this IP, please try again after 15 minutes"
-});
-
-// email form
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: true,
-    auth: {
-        user: "camsjobhunting@gmail.com",
-        pass: process.env.gmailKey,
-    },
-});
 
 // Routes
 app.get('/', (req, res) => {
@@ -53,7 +33,18 @@ app.get('/contact', (req, res) => {
     res.render('contact/contact', {title});
 });
 
-app.post('/email', emailLimiter, async (req, res) => {
+app.get('/test', (req, res) => {
+    try {
+    // const emailName = "test"
+    // const emailAddress = "test@example.com"
+    // const emailContent = "This is a test email"
+    // Nodemailer(emailName, emailAddress, emailContent)
+    res.send("test page loaded. email send. check inbox and terminal.")
+    } catch {res.send("test page loaded. email failed to send")}
+    
+})
+
+app.post('/email', async (req, res) => {
     try {
         // Check for honeypot
         if (req.body.honeypot) {
@@ -61,31 +52,36 @@ app.post('/email', emailLimiter, async (req, res) => {
             return res.status(400).redirect("/emailFail");
         }
 
-        // Extract form data
-        const { emailName, emailAddress, emailContent } = req.body;
+        // reCAPTCHA check
+        const response_key = req.body["g-recaptcha-response"];
+        const secret_key = process.env.recaptchaSecret;
 
-        // console.log(`users name: ${emailName} -| users email: ${emailAddress} -| users message: ${emailContent}`)
+        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`;
 
-        // Set up email data
-        const mailOptions = {
-            from: emailAddress,              // sender address from the form
-            to: "camsjobhunting@gmail.com",  // your address
-            subject: `Message from ${emailName}`, // Subject line
-            text: `response address: ${emailAddress}, from: ${emailName},Content: ${emailContent}`,      // plain text body
-            // html: "<p>Email Content in HTML if needed</p>", // If you want to send HTML content
-            html: `<h2>Email from:</h2> <br>${emailName}
-            <h2>Return address:</h2> <br>${emailAddress}
-            <h2>Content: </h2> <br> <p>${emailContent}</p>`
-        };
+        // Making POST request to verify captcha
+        const google_response = await fetch(url, { method: "post" }).then(response => response.json());
 
-        // Send the email
-        await transporter.sendMail(mailOptions);
+        if (google_response.success) {
+            // Captcha is verified
+            const { emailName, emailAddress, emailContent } = req.body;
 
-        // Send a response to the client
-        res.status(200).redirect("/emailSuccess");
+            try {
+                // Send email
+                await Nodemailer(emailName, emailAddress, emailContent);
+                return res.status(200).redirect("/emailSuccess");
+            } catch (error) {
+                console.error("Error sending email: 📨❌", error);
+                return res.status(500).redirect("/emailFail");
+            }
+        } else {
+            // If captcha is not verified
+            console.error("Failed to verify reCAPTCHA.");
+            return res.status(500).redirect("/emailFail");
+        }
     } catch (error) {
-        console.error("Error redirecting email:", error);
-        res.status(500).redirect("/emailFail");
+        // Handle any other errors
+        console.error("Error processing request: ", error);
+        return res.status(500).redirect("/emailFail");
     }
 });
 

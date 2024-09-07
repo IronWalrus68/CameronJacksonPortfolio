@@ -44,7 +44,7 @@
 
             </div>
             <div class="col-md-6 order-md-1">
-                <form action="/email" method="post" class="needs-validation" novalidate>
+                <form action="/email" method="post" class="needs-validation" id="emailForm" novalidate>
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" class="form-control" name="emailName" id="emailName" placeholder="Enter your name" required>
@@ -68,9 +68,12 @@
                     <div class="container mt-2">
                         <div class="row">
                             <div class="col-md-1 text-center">
+                            <div class="g-recaptcha" data-sitekey="6Lfn7jUqAAAAAOyUJK22dcqJYs365aumE-NPEy4O"> </div>
                                 <!-- <button type="button" class="btn btn-primary">Centered Button on Medium Screen</button> -->
                                 <button type="submit"
-                                    class="btn btn-outline-light font-weight-bold btn-lg mt-3 ">Submit</button>
+                                    class="btn btn-outline-light font-weight-bold btn-lg mt-3 ">
+                                    Submit
+                                    </button>
                             </div>
                         </div>
                     </div>
