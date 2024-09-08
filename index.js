@@ -33,17 +33,6 @@ app.get('/contact', (req, res) => {
     res.render('contact/contact', {title});
 });
 
-app.get('/test', (req, res) => {
-    try {
-    // const emailName = "test"
-    // const emailAddress = "test@example.com"
-    // const emailContent = "This is a test email"
-    // Nodemailer(emailName, emailAddress, emailContent)
-    res.send("test page loaded. email send. check inbox and terminal.")
-    } catch {res.send("test page loaded. email failed to send")}
-    
-})
-
 app.post('/email', async (req, res) => {
     try {
         // Check for honeypot
