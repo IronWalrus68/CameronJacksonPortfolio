@@ -7,6 +7,7 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const Joi = require('joi');
 const Nodemailer = require('./utils/nodeMailer');
+const reCAPTCHA = require('./utils/reCAPTCHA_V2');
 
 // Middleware setup
 app.engine('ejs', ejsMate);
@@ -18,70 +19,48 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', (req, res) => {
     const title = 'Home'
-    res.render('home', {title});
+    res.render('home', { title });
 });
 app.get('/blank', (req, res) => {
     const title = 'blank'
-    res.render('blank', {title});
+    res.render('blank', { title });
 });
 app.get('/portfolio', (req, res) => {
     const title = 'portfolio'
-    res.render('portfolio/portfolio', {title});
+    res.render('portfolio/portfolio', { title });
 });
 app.get('/contact', (req, res) => {
     const title = 'contact'
-    res.render('contact/contact', {title});
+    res.render('contact/contact', { title });
 });
 
 app.post('/email', async (req, res) => {
+    // Check for honeypot
+    if (req.body.honeypot) {
+        // If honeypot is filled out, the user is probably a bot.
+        return res.status(400).redirect("/emailFail");
+    }
+    const response_key = req.body["g-recaptcha-response"];
+    const { emailName, emailAddress, emailContent } = req.body;
     try {
-        // Check for honeypot
-        if (req.body.honeypot) {
-            // If honeypot is filled out, it's probably a bot.
-            return res.status(400).redirect("/emailFail");
-        }
-
-        // reCAPTCHA check
-        const response_key = req.body["g-recaptcha-response"];
-        const secret_key = process.env.recaptchaSecret;
-
-        const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`;
-
-        // Making POST request to verify captcha
-        const google_response = await fetch(url, { method: "post" }).then(response => response.json());
-
-        if (google_response.success) {
-            // Captcha is verified
-            const { emailName, emailAddress, emailContent } = req.body;
-
-            try {
-                // Send email
-                await Nodemailer(emailName, emailAddress, emailContent);
-                return res.status(200).redirect("/emailSuccess");
-            } catch (error) {
-                console.error("Error sending email: 📨❌", error);
-                return res.status(500).redirect("/emailFail");
-            }
-        } else {
-            // If captcha is not verified
-            console.error("Failed to verify reCAPTCHA.");
-            return res.status(500).redirect("/emailFail");
-        }
-    } catch (error) {
-        // Handle any other errors
-        console.error("Error processing request: ", error);
+        await reCAPTCHA(response_key)
+        await Nodemailer(emailName, emailAddress, emailContent);
+        return res.status(200).redirect("/emailSuccess");
+    } catch (err) {
+        console.log("error with either checking reCAPTCHA or sending mail")
+        console.log(err)
         return res.status(500).redirect("/emailFail");
     }
 });
 
 app.get('/emailSuccess', (req, res) => {
     const title = "Email Success!"
-    res.render('contact/emailSentSuccess', { title})
+    res.render('contact/emailSentSuccess', { title })
 })
 
 app.get('/emailFail', (req, res) => {
     const title = "Email Failed to send :("
-    res.render('contact/emailSentFail', { title})
+    res.render('contact/emailSentFail', { title })
 })
 
 // 404 handling
