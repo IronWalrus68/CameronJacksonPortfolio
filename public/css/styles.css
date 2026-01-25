@@ -64,3 +64,46 @@ footer {
 .socialsLink a{
     color: var(--text-colour);
 }
+/* HERO IMAGE STYLING */
+.hero-image-wrapper {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, #0d6efd, #6c757d);
+}
+
+.hero-image {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scroll-indicator .arrow {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-bottom: 3px solid #000;
+  border-right: 3px solid #000;
+  transform: rotate(45deg);
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate(-50%, 10px) rotate(45deg);
+  }
+}
