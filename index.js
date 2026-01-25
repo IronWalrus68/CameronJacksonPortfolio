@@ -25,43 +25,6 @@ app.get('/blank', (req, res) => {
     const title = 'blank'
     res.render('blank', { title });
 });
-app.get('/portfolio', (req, res) => {
-    const title = 'portfolio'
-    res.render('portfolio/portfolio', { title });
-});
-app.get('/contact', (req, res) => {
-    const title = 'contact'
-    res.render('contact/contact', { title });
-});
-
-app.post('/email', async (req, res) => {
-    // Check for honeypot
-    if (req.body.honeypot) {
-        // If honeypot is filled out, the user is probably a bot.
-        return res.status(400).redirect("/emailFail");
-    }
-    const response_key = req.body["g-recaptcha-response"];
-    const { emailName, emailAddress, emailContent } = req.body;
-    try {
-        await reCAPTCHA(response_key)
-        await Nodemailer(emailName, emailAddress, emailContent);
-        return res.status(200).redirect("/emailSuccess");
-    } catch (err) {
-        console.log("error with either checking reCAPTCHA or sending mail")
-        console.log(err)
-        return res.status(500).redirect("/emailFail");
-    }
-});
-
-app.get('/emailSuccess', (req, res) => {
-    const title = "Email Success!"
-    res.render('contact/emailSentSuccess', { title })
-})
-
-app.get('/emailFail', (req, res) => {
-    const title = "Email Failed to send :("
-    res.render('contact/emailSentFail', { title })
-})
 
 // 404 handling
 app.all('*', (req, res, next) => {
