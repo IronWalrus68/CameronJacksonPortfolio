@@ -6,8 +6,6 @@ const app = express();
 const path = require('path');
 const ejsMate = require('ejs-mate');
 const Joi = require('joi');
-const Nodemailer = require('./utils/nodeMailer');
-const reCAPTCHA = require('./utils/reCAPTCHA_V2');
 
 // Middleware setup
 app.engine('ejs', ejsMate);
