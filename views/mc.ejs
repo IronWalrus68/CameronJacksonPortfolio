@@ -1,0 +1,147 @@
+<% layout('layouts/boilerplate')%>
+<div class="container-fluid p-0" style="min-height:100vh; background:#0f0f14;">
+
+  <div class="container py-5 text-light">
+
+    <!-- Hero Section -->
+    <div class="text-center mb-5">
+      <h1 class="display-4 fw-bold">Pixel Pals Piazza MC</h1>
+      <p class="lead text-secondary text-light">A friendly, modded Minecraft community server</p>
+
+      <div class="d-inline-flex align-items-center gap-2 mt-3 px-3 py-2 rounded"
+           style="background:#15151c;">
+        <span class="fs-5 fw-semibold" id="serverIp">MC.CamJ.uk</span>
+
+        <!-- Copy Icon -->
+        <span role="button" title="Copy IP" onclick="copyIP()" style="cursor:pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+               fill="currentColor" class="bi bi-copy text-info" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+          </svg>
+        </span>
+      </div>
+
+      <div id="copyAlert" class="text-success mt-2" style="display:none;">
+        IP copied to clipboard
+      </div>
+    </div>
+
+    <!-- Rules Section -->
+    <div class="card shadow-sm mb-5"
+         style="background:#14141b; border:1px solid #222;">
+      <div class="card-body">
+        <h3 class="card-title text-light">Server Rules</h3>
+        <ul class="mb-0 text-light">
+          <li>Don't do anything to get your self banned.</li>
+          <li>Don't do anything that will cause server issues, (lag machines etc).</li>
+          <li>Try not to ruin spawn. You can build and collect resources there but try to keep it pretty.</li>
+          <li>No cheating or hacked clients. Quality of life, glowing ores etc is okay.</li>
+          <li>Use common sense</li>
+        </ul>
+      </div>
+    </div>
+
+<!-- Mods Table Section -->
+<div class="container py-5 text-light">
+    <h2 class="fw-bold text-center mb-4">Required / Optional Mods</h2>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-bordered table-hover align-middle text-center">
+            <thead>
+                <tr>
+                    <th>Required</th>
+                    <th>Mod Name</th>
+                    <th>Version</th>
+                    <th>Website</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Start First Mod -->
+                <tr>
+                    <td>✅</td>
+                    <td>Create Fabric</td>
+                    <td>1.20.1</td>
+                    <td>
+                        <a href="https://modrinth.com/mod/create-fabric" target="_blank" class="btn btn-sm btn-outline-info">Website</a>
+                    </td>
+                    <td>
+                        <a href="https://cdn.modrinth.com/data/Xbc0uyRg/versions/HAqwA6X1/create-fabric-6.0.8.1%2Bbuild.1744-mc1.20.1.jar" target="_blank" class="btn btn-sm btn-outline-success">Download</a>
+                    </td>
+                </tr>
+
+                <!-- End First Mod -->
+                <tr>
+                    <td>✅</td>
+                    <td>Create: Steam 'n' Rails (beta)</td>
+                    <td>1.20.1</td>
+                    <td>
+                        <a href="https://modrinth.com/mod/create-steam-n-rails" target="_blank" class="btn btn-sm btn-outline-info disabled">Website</a>
+                    </td>
+                    <td>
+                        <a href="https://cdn.modrinth.com/data/ZzjhlDgM/versions/YC8Fi2Uf/Steam_Rails-1.6.15-beta%2Bfabric-mc1.20.1.jar" target="_blank" class="btn btn-sm btn-outline-success disabled">Download</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>❌</td>
+                    <td>Distant Horizons</td>
+                    <td>1.20.1</td>
+                    <td>
+                        <a href="https://modrinth.com/mod/distanthorizons" target="_blank" class="btn btn-sm btn-outline-info disabled">Website</a>
+                    </td>
+                    <td>
+                        <a href="https://cdn.modrinth.com/data/uCdwusMi/versions/lC6CwqPp/DistantHorizons-2.4.5-b-1.20.1-fabric-forge.jar" target="_blank" class="btn btn-sm btn-outline-success disabled">Download</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer style="background:#0b0b10; border-top:1px solid #1f1f2a;">
+  <div class="container py-4 text-secondary">
+    <div class="row align-items-center">
+
+      <!-- Left -->
+      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+        <span class="fw-semibold text-light">Pixel Pals Piazza MC</span><br>
+        <small>IP: <span class="text-info">MC.CamJ.uk</span></small>
+      </div>
+
+      <!-- Center -->
+      <div class="col-md-3 text-center mb-3 mb-md-0">
+        <small>© <span id="year"></span> Pixel Pals Piazza MC</small>
+      </div>
+
+      <!-- Right -->
+      <div class="col-md-3 text-center text-md-end">
+        <!-- <a href="#" class="text-secondary me-3 text-decoration-none">Rules</a>
+        <a href="#" class="text-secondary me-3 text-decoration-none">Mods</a> -->
+        <a href="https://discord.gg/4EZPZC6j9S" class="text-secondary text-decoration-none">Discord</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Auto year
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+<!-- Inline JS -->
+<script>
+  function copyIP() {
+    const ip = document.getElementById("serverIp").innerText;
+    navigator.clipboard.writeText(ip).then(() => {
+      const alertBox = document.getElementById("copyAlert");
+      alertBox.style.display = "block";
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 1500);
+    });
+  }
+</script>
