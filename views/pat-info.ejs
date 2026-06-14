@@ -1,0 +1,200 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f111a;
+    color: #e2e8f0;
+  }
+  .hero-info {
+    background: linear-gradient(135deg, #bd2c1d 0%, #610d05 100%);
+    color: white;
+    padding: 5rem 0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  .law-card {
+    background: #161925;
+    border: 1px solid #222533;
+    border-top: 4px solid #bd2c1d;
+    border-radius: 1rem;
+    transition: transform 0.2s ease;
+  }
+  .law-card:hover {
+    transform: translateY(-3px);
+  }
+  .test-section {
+    background: #161925;
+    border: 1px solid #222533;
+    border-radius: 1.25rem;
+    padding: 2rem;
+  }
+  .test-icon {
+    font-size: 1.75rem;
+    color: #ff4a3d;
+    background-color: #0b0c12;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #31364c;
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .badge-law {
+    background-color: #0b0c12;
+    color: #ff4a3d;
+    border: 1px solid #31364c;
+  }
+</style>
+
+<!-- Section: Hero Banner -->
+<header class="hero-info text-center shadow-sm">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">Why Do You Need PAT Testing?</h1>
+    <p class="lead mx-auto text-white-50" style="max-width: 750px;">
+      Portable Appliance Testing (PAT) is a fundamental part of workplace risk management. While the testing process itself isn't a direct legal requirement, ensuring electrical equipment is safe *is* a strict legal duty under multiple UK acts.
+    </p>
+  </div>
+</header>
+
+<main class="container my-5">
+  
+  <!-- Section: The 3 Main Legislations -->
+  <section class="mb-5">
+    <div class="text-center mb-5">
+      <h2 class="h3 fw-bold text-white">The UK Compliance Framework</h2>
+      <p class="text-muted-dark">Failure to maintain appliances can invalidate insurance and lead to prosecution under three key frameworks.</p>
+    </div>
+    
+    <div class="row g-4">
+      <!-- Law Slot 1 -->
+      <div class="col-md-4">
+        <div class="law-card p-4 h-100 shadow-sm">
+          <span class="badge badge-law mb-3 px-3 py-1 fw-bold rounded-pill">Health & Safety</span>
+          <h3 class="h5 fw-bold text-white mb-2">The Health and Safety at Work Act 1974</h3>
+          <p class="small text-muted-dark mb-0">
+            Places an absolute duty of care on employers to ensure the safety, health, and welfare of all employees, visitors, and contractors on their commercial premises.
+          </p>
+        </div>
+      </div>
+
+      <!-- Law Slot 2 -->
+      <div class="col-md-4">
+        <div class="law-card p-4 h-100 shadow-sm">
+          <span class="badge badge-law mb-3 px-3 py-1 fw-bold rounded-pill">Electrical Law</span>
+          <h3 class="h5 fw-bold text-white mb-2">The Electricity at Work Regulations 1989</h3>
+          <p class="small text-muted-dark mb-0">
+            Regulation 4(2) explicitly states that all electrical systems and assets shall be maintained in a safe structural condition to prevent any danger of shock or fire.
+          </p>
+        </div>
+      </div>
+
+      <!-- Law Slot 3 -->
+      <div class="col-md-4">
+        <div class="law-card p-4 h-100 shadow-sm">
+          <span class="badge badge-law mb-3 px-3 py-1 fw-bold rounded-pill">Property & Assets</span>
+          <h3 class="h5 fw-bold text-white mb-2">Provision & Use of Work Equipment Regs 1998</h3>
+          <p class="small text-muted-dark mb-0">
+            Requires employers to ensure that work equipment is suitable for its intended environment and systematically maintained to prevent structural failures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-secondary my-5">
+
+  <!-- Section: The 6 Types of Testing Breakdown -->
+  <section>
+    <div class="text-center mb-5">
+      <h2 class="h3 fw-bold text-white">Testing Protocols Explained</h2>
+      <p class="text-muted-dark">Here is an in-depth breakdown of what happens during each test phase to safeguard your environment.</p>
+    </div>
+
+    <div class="row g-4">
+      
+      <!-- Test 1: Visual Only Inspection -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">🔍</div>
+            <h3 class="h5 fw-bold text-white mb-0">1. Visual Only Inspection</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            The foundation of every test. Over 90% of electrical faults are detected visually. We inspect the plug top for fractures, verify the correct fuse rating is fitted, check cord grips, and ensure the outer protective sheath has no exposed wiring.
+          </p>
+        </div>
+      </div>
+
+      <!-- Test 2: Class 1 Testing -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">⚙️</div>
+            <h3 class="h5 fw-bold text-white mb-0">2. Class 1 Testing (Earthed Appliances)</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            For appliances that rely on an earth wire for protection (like kettles, fridges, and PCs). We use specialist calibrated hardware to perform Earth Continuity and Insulation Resistance tests, verifying that high currents safely vent away if a live wire breaks.
+          </p>
+        </div>
+      </div>
+
+      <!-- Test 3: Class 2 Testing -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">🛡️</div>
+            <h3 class="h5 fw-bold text-white mb-0">3. Class 2 Testing (Double Insulated)</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            For equipment built with double layers of plastic insulation instead of an earth wire (like plastic drills, phone chargers, or lamps). We run a controlled high-voltage screening insulation resistance check to verify the casing cannot leak power to the user.
+          </p>
+        </div>
+      </div>
+
+      <!-- Test 4: Extension Lead Testing -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">🔌</div>
+            <h3 class="h5 fw-bold text-white mb-0">4. Extension Lead & Trailing Socket Testing</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            Extension leads present unique fire hazards. We independently inspect the internal physical structural components, execute polarity mapping to confirm no wires are crossed, and repeat earth path analysis for every separate socket interface on the trailing lead block.
+          </p>
+        </div>
+      </div>
+
+      <!-- Test 5: Power Lead Tests (IEC / Cloverleaf) -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">💻</div>
+            <h3 class="h5 fw-bold text-white mb-0">5. Detachable Power Leads</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            Detachable cables (like laptop cloverleaf cords or desktop monitor kettle leads) must be classified and tested as an entirely separate asset. We measure core safety tracking bounds via earth integrity tests and full core wiring polarity tests.
+          </p>
+        </div>
+      </div>
+
+      <!-- Test 6: Microwave Emissions Testing -->
+      <div class="col-md-6">
+        <div class="test-section h-100 shadow-sm">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="test-icon">☢️</div>
+            <h3 class="h5 fw-bold text-white mb-0">6. Microwave Emissions & Leakage</h3>
+          </div>
+          <p class="small text-muted-dark mb-0">
+            Beyond standard electrical safety, microwaves can leak harmful invisible electromagnetic radiation over time due to degrading door seals. We use an advanced digital detection wand to sweep door frames and seals, confirming safe, certified emission limit levels.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
