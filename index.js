@@ -23,6 +23,10 @@ app.get('/mc', (req, res) => {
     const title = 'PPP MC!'
     res.render('mc', { title });
 });
+app.get('/pricing', (req, res) => {
+    const title = 'Pricing'
+    res.render('pricing', { title });
+});
 app.get('/blank', (req, res) => {
     const title = 'blank'
     res.render('blank', { title });
