@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  .success-card {
+    background: #161925;
+    border: 1px solid #222533;
+    border-top: 4px solid #198754; /* Green success top-accent */
+    border-radius: 1.25rem;
+    padding: 3.5rem 2.5rem;
+  }
+  .icon-success {
+    font-size: 3.5rem;
+    color: #198754;
+    background-color: #0b0c12;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #222533;
+    margin: 0 auto 1.5rem auto;
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .btn-outline-custom {
+    border: 1px solid #222533;
+    color: #e2e8f0;
+    background-color: #0b0c12;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+  }
+  .btn-outline-custom:hover {
+    border-color: #ff4a3d;
+    color: #fff;
+  }
+</style>
+
+<main class="container my-5 text-center">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <div class="success-card shadow-sm">
+        <div class="icon-success">✓</div>
+        <h1 class="h2 fw-bold text-white mb-3">Request Received!</h1>
+        <p class="lead text-white-50 fs-5 mb-3">Thank you for getting in touch.</p>
+        <p class="text-muted-dark small mb-5">
+          Your service appointment inquiry has been successfully routed to our inbox. We will check our active scheduling log for your requested date and get back to you shortly.
+        </p>
+        <a href="/" class="btn btn-outline-custom w-100 py-2.5">
+          🏠 Return to Homepage
+        </a>
+      </div>
+    </div>
+  </div>
+</main>

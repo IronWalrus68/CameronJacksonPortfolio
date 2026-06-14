@@ -94,11 +94,14 @@ try {
         // 4. Execute standard email transmission
         await mailTransporter.sendMail(internalEmailTemplate);
         
-        res.send("Thank you! Your inquiry slot has been routed successfully. We will check our availability schedules and reply back via email shortly.");
+        // SUCCESS HANDLING: Render the success page view
+        return res.render('booking-success', { title: 'Inquiry Received' });
 
     } catch (errorDetails) {
         console.error("Mail Server Error Trap Logged:", errorDetails);
-        res.status(500).send("An internal system processing breakdown occurred. Please try contacting us directly via phone or raw email client routes.");
+        
+        // FAILURE HANDLING: Render the failure page view instead of standard error code text
+        return res.render('booking-failed', { title: 'Submission Failed' });
     }
 });
 
