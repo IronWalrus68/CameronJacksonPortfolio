@@ -35,6 +35,10 @@ app.get('/contact', (req, res) => {
     const title = 'contact'
     res.render('contact', { title });
 });
+app.get('/terms', (req, res) => {
+    const title = 'terms&conditions'
+    res.render('terms', { title });
+});
 app.get('/blank', (req, res) => {
     const title = 'blank'
     res.render('blank', { title });

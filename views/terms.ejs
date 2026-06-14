@@ -1,0 +1,100 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f111a;
+    color: #e2e8f0;
+  }
+  .hero-legal {
+    background: linear-gradient(135deg, #bd2c1d 0%, #610d05 100%);
+    color: white;
+    padding: 4rem 0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  .legal-box {
+    background: #161925;
+    border: 1px solid #222533;
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+  }
+  .legal-section {
+    border-bottom: 1px solid #222533;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .legal-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .footer-legal {
+    background-color: #0b0c12;
+    border-top: 1px solid #222533;
+    padding: 3rem 0;
+    margin-top: 5rem;
+  }
+  .footer-link {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-link:hover {
+    color: #ff4a3d;
+  }
+</style>
+
+<!-- Section: Hero Banner -->
+<header class="hero-legal text-center shadow-sm">
+  <div class="container">
+    <h1 class="display-5 fw-bold mb-2">Terms of Service & Legal Disclaimer</h1>
+    <p class="lead mx-auto text-white-50" style="max-width: 650px;">
+      Please read our operational limits, liability boundaries, and testing terms carefully before booking our services.
+    </p>
+  </div>
+</header>
+
+<main class="container my-5">
+  <div class="row">
+    <div class="col-lg-9 mx-auto">
+      <div class="legal-box shadow-sm">
+        
+        <!-- Section 1: Data Backup -->
+        <div class="legal-section">
+          <h2 class="h5 fw-bold text-white mb-3">1. Operational Downtime & Data Liability</h2>
+          <p class="text-muted-dark small mb-0">
+            Portable Appliance Testing (PAT) inherently requires equipment to be temporarily disconnected from its power source. It is the sole responsibility of the client to ensure all computers, servers, IT networks, and data-sensitive equipment are fully backed up and safely shut down prior to testing. CamJ PAT Testing accepts no liability for business disruption, lost profits, software errors, or data corruption resulting from the standard power isolation required for testing.
+          </p>
+        </div>
+
+        <!-- Section 2: Pre-existing Damage -->
+        <div class="legal-section">
+          <h2 class="h5 fw-bold text-white mb-3">2. Pre-Existing Equipment Degradation</h2>
+          <p class="text-muted-dark small mb-0">
+            During standard handling and testing protocols, old, brittle, or poorly manufactured components (such as aged plastic plug casings, degraded cable sheaths, or loose internal socket terminals) may fail mechanically. CamJ PAT Testing will not be held liable for any damage or mechanical disintegration of equipment that occurs due to pre-existing structural weakness during standard, compliant handling.
+          </p>
+        </div>
+
+        <!-- Section 3: Failed Appliances -->
+        <div class="legal-section">
+          <h2 class="h5 fw-bold text-white mb-3">3. Handling of Failed Equipment</h2>
+          <p class="text-muted-dark small mb-0">
+            Any appliance that fails to meet safety thresholds under the IET Code of Practice will be immediately labeled with a red "FAIL" tag and withdrawn from service. To prevent live electrical hazards, plugs may be safely cut or equipment structurally isolated. CamJ PAT Testing accepts zero liability for operational loss or inconvenience caused by decommissioning unsafe assets. If the client chooses to re-commission or use an item against our explicit certified failure notice, they assume all subsequent fire, shock, and legal liabilities.
+          </p>
+        </div>
+
+        <!-- Section 4: Site Access & Thresholds -->
+        <div class="legal-section">
+          <h2 class="h5 fw-bold text-white mb-3">4. Site Access, Delays & Minimum Charges</h2>
+          <p class="text-muted-dark small mb-0">
+            As stated in our pricing matrix, a minimum billing threshold of £50 applies to all jobs. Clients must ensure clear, unobstructed access to all appliances at the scheduled time. If testing is delayed or extended due to missing keys, high-security clearance hold-ups without prior notice, or locked rooms, additional site surcharges may occur. Extended travel fees may apply to locations outside our standard local service area.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
