@@ -1,0 +1,125 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  .booking-card {
+    background: #161925;
+    border: 1px solid #222533;
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+  }
+  .form-control-dark {
+    background-color: #0b0c12;
+    border: 1px solid #222533;
+    color: #fff;
+  }
+  .form-control-dark:focus {
+    background-color: #0b0c12;
+    border-color: #ff4a3d;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 74, 61, 0.25);
+  }
+  .form-control-dark::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Makes the calendar icon white for dark mode */
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .btn-red {
+    background-color: #bd2c1d;
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .btn-red:hover {
+    background-color: #ff4a3d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 74, 61, 0.4);
+  }
+</style>
+
+<main class="container my-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <div class="booking-card shadow-sm">
+        <h2 class="h3 fw-bold text-white mb-2">Request a Service Appointment</h2>
+        <p class="text-muted-dark mb-4">Fill out the parameters below to request an inspection window. We will get back to you with an official confirmation slot.</p>
+
+        <!-- Dynamic 2-Week Warning Banner -->
+        <div class="alert alert-warning border-0 bg-dark text-warning p-3 mb-4 rounded-3 small d-flex align-items-start gap-2" style="border-left: 4px solid #ffc107 !important;">
+          <span>⏳</span>
+          <div>
+            <strong>Notice:</strong> We currently operate on a strict <strong>minimum 2-week waiting period</strong> for non-emergency bookings. The date selector below has restricted unavailable dates automatically.
+          </div>
+        </div>
+
+        <form action="/request-appointment" method="POST" id="appointmentForm">
+          
+          <!-- Email Input -->
+          <div class="mb-3">
+            <label for="clientEmail" class="form-label small fw-bold text-uppercase text-muted-dark">Your Email Address</label>
+            <input type="email" class="form-control form-control-dark" id="clientEmail" name="email" placeholder="name@business.co.uk" required>
+          </div>
+
+          <div class="row">
+            <!-- Restricted Date Selector -->
+            <div class="col-md-6 mb-3">
+              <label for="bookingDate" class="form-label small fw-bold text-uppercase text-muted-dark">Requested Date</label>
+              <input type="date" class="form-control form-control-dark" id="bookingDate" name="date" required>
+            </div>
+
+            <!-- Item Quantity Estimate Range -->
+            <div class="col-md-6 mb-3">
+              <label for="itemEstimate" class="form-label small fw-bold text-uppercase text-muted-dark">Estimated Asset Count</label>
+              <select class="form-select form-control-dark" id="itemEstimate" name="itemCount" required>
+                <option value="" disabled selected>Select an estimate...</option>
+                <option value="1-50 items (Base Rate Zone)">1 - 50 items (Under Base Rate Threshold)</option>
+                <option value="51-100 items">51 - 100 items</option>
+                <option value="101-250 items">101 - 250 items</option>
+                <option value="251-500 items">251 - 500 items</option>
+                <option value="500+ items">500+ items (Large Commercial Site)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Message Details text area -->
+          <div class="mb-4">
+            <label for="clientMessage" class="form-label small fw-bold text-uppercase text-muted-dark">Project Scope Details</label>
+            <textarea class="form-control form-control-dark" id="clientMessage" name="message" rows="4" placeholder="Please specify if there are specific site features, access rules, clearances or location quirks..." required></textarea>
+          </div>
+
+          <!-- Google reCAPTCHA v2 Widget (Matches async script inside your boilerplate) -->
+          <div class="mb-4">
+            <div class="g-recaptcha" data-sitekey="6Lfn7jUqAAAAAOyUJK22dcqJYs365aumE-NPEy4O" data-theme="dark"></div>
+          </div>
+
+          <!-- Submit Action Button -->
+          <button type="submit" class="btn btn-red w-100 py-2.5 fw-bold rounded-3">
+            ✉️ Submit Booking Request
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- JS: Enforce 2-Week Threshold Blockout -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dateInput = document.getElementById("bookingDate");
+    
+    // Create timestamp for exactly 14 days from today
+    const targetMinDate = new Date();
+    targetMinDate.setDate(targetMinDate.getDate() + 14);
+    
+    // Format to ISO Standard format (YYYY-MM-DD)
+    const year = targetMinDate.getFullYear();
+    const month = String(targetMinDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetMinDate.getDate()).padStart(2, '0');
+    
+    const formattedMinString = `${year}-${month}-${day}`;
+    
+    // Inject attribute restriction rule natively 
+    dateInput.setAttribute("min", formattedMinString);
+  });
+</script>
