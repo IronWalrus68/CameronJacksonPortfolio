@@ -1,73 +1,72 @@
-<% layout('layouts/boilerplate')%>
+<% layout('layouts/boilerplate') %>
+
 <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f111a; /* Deep premium dark background */
-      color: #e2e8f0; /* Soft off-white text for great readability */
-    }
-    .hero-pricing {
-      background: linear-gradient(135deg, #bd2c1d 0%, #610d05 100%);
-      color: white;
-      padding: 5rem 0;
-      border-radius: 0 0 2rem 2rem;
-    }
-    .threshold-badge {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50px;
-      display: inline-block;
-    }
-    .metric-card {
-      background-color: #161925;
-      color: white;
-      border-radius: 1rem;
-      border-left: 5px solid #bd2c1d;
-      border: 1px solid #222533;
-      border-left-width: 5px;
-    }
-    .pricing-card {
-      background: #161925;
-      border-radius: 1.25rem;
-      border: 1px solid #222533;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .pricing-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
-      border-color: #31364c;
-    }
-    .price-tag {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #ff4a3d; /* Vibrant glowing red for dark mode contrast */
-    }
-    .calc-box {
-      background-color: #0b0c12;
-      border-radius: 1rem;
-      border: 1px dashed #31364c;
-    }
-    .form-control-dark {
-      background-color: #0b0c12;
-      border: 1px solid #222533;
-      color: #fff;
-    }
-    .form-control-dark:focus {
-      background-color: #0b0c12;
-      border-color: #ff4a3d;
-      color: #fff;
-      box-shadow: 0 0 0 0.25rem rgba(255, 74, 61, 0.25);
-    }
-    .text-muted-dark {
-      color: #94a3b8;
-    }
-    .calc-box .btn:hover {
-  background-color: #ff4a3d !important;
-  box-shadow: 0 4px 15px rgba(255, 74, 61, 0.4);
-}
-  </style>
-</head>
-<body>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f111a; /* Deep premium dark background */
+    color: #e2e8f0; /* Soft off-white text for great readability */
+  }
+  .hero-pricing {
+    background: linear-gradient(135deg, #bd2c1d 0%, #610d05 100%);
+    color: white;
+    padding: 5rem 0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  .threshold-badge {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    display: inline-block;
+  }
+  .metric-card {
+    background-color: #161925;
+    color: white;
+    border-radius: 1rem;
+    border-left: 5px solid #bd2c1d;
+    border: 1px solid #222533;
+    border-left-width: 5px;
+  }
+  .pricing-card {
+    background: #161925;
+    border-radius: 1.25rem;
+    border: 1px solid #222533;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pricing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+    border-color: #31364c;
+  }
+  .price-tag {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ff4a3d; /* Vibrant glowing red for dark mode contrast */
+  }
+  .calc-box {
+    background-color: #0b0c12;
+    border-radius: 1rem;
+    border: 1px dashed #31364c;
+  }
+  .form-control-dark {
+    background-color: #0b0c12;
+    border: 1px solid #222533;
+    color: #fff;
+  }
+  .form-control-dark:focus {
+    background-color: #0b0c12;
+    border-color: #ff4a3d;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 74, 61, 0.25);
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .calc-box .btn:hover {
+    background-color: #ff4a3d !important;
+    box-shadow: 0 4px 15px rgba(255, 74, 61, 0.4);
+  }
+</style>
 
 <!-- Section: Hero Banner -->
 <header class="hero-pricing text-center shadow-sm">
@@ -106,7 +105,7 @@
         <div class="pricing-card p-4 shadow-sm d-flex justify-content-between align-items-center">
           <div>
             <h4 class="h6 fw-bold mb-1 text-white">Visual Only Tests</h4>
-            <p class="small text-muted-dark mb-0">Basic visual structural integrity checks</p>
+            <p class="small text-muted-dark mb-0">Checking the integrity of the flex, plug housing, and general condition of the portable appliance to ensure it is safe for use.</p>
           </div>
           <div class="price-tag">35p</div>
         </div>
@@ -114,15 +113,15 @@
         <div class="pricing-card p-4 shadow-sm d-flex justify-content-between align-items-center">
           <div>
             <h4 class="h6 fw-bold mb-1 text-white">Class 1 / Power Lead Tests</h4>
-            <p class="small text-muted-dark mb-0">Earthed appliances and mainline power feeds</p>
+            <p class="small text-muted-dark mb-0">Testing earthed appliances and mainline power feeds. Includes Earth Continuity, Earth Leakage (Class 1 only), and Polarity testing (IEC only). This comprehensive test includes a visual inspection and Class 2 verification as standard.</p>
           </div>
           <div class="price-tag">£1</div>
         </div>
 
         <div class="pricing-card p-4 shadow-sm d-flex justify-content-between align-items-center">
           <div>
-            <h4 class="h6 fw-bold mb-1 text-white">Class 2 Tests / Extension Leads</h4>
-            <p class="small text-muted-dark mb-0">Insulated structural casing & power track links</p>
+            <h4 class="h6 fw-bold mb-1 text-white">Class 2 Tests</h4>
+            <p class="small text-muted-dark mb-0">Testing for double insulation and Insulation Resistance. A full visual inspection is included with this test.</p>
           </div>
           <div class="price-tag">60p</div>
         </div>
@@ -130,8 +129,8 @@
         <div class="pricing-card p-4 shadow-sm d-flex justify-content-between align-items-center">
           <div>
             <h4 class="h6 fw-bold mb-1 text-white">Extension Leads</h4>
-            <p class="small text-muted-dark mb-0">Insulated structural casing & power track links.</p>
-            <p class="small text-muted-dark mb-0">*This test is done for each socket on the extension</p>
+            <p class="small text-muted-dark mb-0">Testing earthed appliances, mainline power feeds, Earth Continuity, and Polarity.</p>
+            <p class="small text-muted-dark mb-0">*This rate applies to each individual socket on the extension lead.</p>
           </div>
           <div class="price-tag">60p*</div>
         </div>
@@ -139,7 +138,7 @@
         <div class="pricing-card p-4 shadow-sm d-flex justify-content-between align-items-center">
           <div>
             <h4 class="h6 fw-bold mb-1 text-white">Microwave Emissions</h4>
-            <p class="small text-muted-dark mb-0">Dedicated radiation leakage testing protocols</p>
+            <p class="small text-muted-dark mb-0">Dedicated radiation leakage safety testing protocols. Includes an accompanying Class 1 or Visual test.</p>
           </div>
           <div class="price-tag">£5</div>
         </div>
@@ -174,52 +173,56 @@
         </form>
 
         <div class="calc-box p-3 text-center">
-  <span class="small text-muted-dark d-block text-uppercase fw-semibold tracking-wide">Estimated Total</span>
-  <div class="display-6 fw-bold my-1 text-white" id="grandTotal">£50.00</div>
-  <span id="thresholdStatus" class="badge bg-secondary small mb-3">Minimum Base Rate Applied</span>
-  
-  <!-- New Booking Button -->
-  <a href="booking.html" class="btn w-100 fw-bold py-2 text-white transition" style="background-color: #bd2c1d; border-radius: 0.75rem;">
-    📅 Book This Job Now
-  </a>
-</div>
+          <span class="small text-muted-dark d-block text-uppercase fw-semibold tracking-wide">Estimated Total</span>
+          <div class="display-6 fw-bold my-1 text-white" id="grandTotal">£50.00</div>
+          <span id="thresholdStatus" class="badge bg-secondary small mb-3">Minimum Base Rate Applied</span>
+          
+          <!-- Booking Button -->
+          <a href="/blank" class="btn w-100 fw-bold py-2 text-white transition" style="background-color: #bd2c1d; border-radius: 0.75rem;">
+            📅 Book This Job Now
+          </a>
+        </div>
       </div>
     </div>
 
   </div>
 </main>
 
-<!-- Bootstrap 5 JS & Live Calculation Logic -->
-<script src="https://jsdelivr.net"></script>
+<!-- Live Calculation Logic Script -->
 <script>
-  const inputs = ['qtyVisual', 'qtyClass2', 'qtyClass1', 'qtyMicrowave'];
-  
-  function calculateTotal() {
-    const visual = parseInt(document.getElementById('qtyVisual').value) || 0;
-    const class2 = parseInt(document.getElementById('qtyClass2').value) || 0;
-    const class1 = parseInt(document.getElementById('qtyClass1').value) || 0;
-    const micro = parseInt(document.getElementById('qtyMicrowave').value) || 0;
+  document.addEventListener("DOMContentLoaded", function() {
+    const inputs = ['qtyVisual', 'qtyClass1', 'qtyClass2', 'qtyMicrowave'];
     
-    // Exact pricing rules
-    let accumulatedPrice = (visual * 0.35) + (class2 * 0.60) + (class1 * 1.00) + (micro * 5.00);
-    
-    const finalTotal = Math.max(50, accumulatedPrice);
-    document.getElementById('grandTotal').innerText = '£' + finalTotal.toFixed(2);
-    
-    const statusBadge = document.getElementById('thresholdStatus');
-    if (accumulatedPrice < 50 && accumulatedPrice > 0) {
-      statusBadge.innerText = "Minimum Base Rate Applied";
-      statusBadge.className = "badge bg-secondary small mt-1";
-    } else if (accumulatedPrice >= 50) {
-      statusBadge.innerText = "Threshold Exceeded (Standard Metering)";
-      statusBadge.className = "badge bg-success small mt-1";
-    } else {
-      statusBadge.innerText = "Minimum Base Rate Applied";
-      statusBadge.className = "badge bg-secondary small mt-1";
+    function calculateTotal() {
+      const visual = parseInt(document.getElementById('qtyVisual').value) || 0;
+      const class1 = parseInt(document.getElementById('qtyClass1').value) || 0;
+      const class2 = parseInt(document.getElementById('qtyClass2').value) || 0;
+      const micro = parseInt(document.getElementById('qtyMicrowave').value) || 0;
+      
+      // Target price tiers
+      let accumulatedPrice = (visual * 0.35) + (class1 * 1.00) + (class2 * 0.60) + (micro * 5.00);
+      
+      const finalTotal = Math.max(50, accumulatedPrice);
+      document.getElementById('grandTotal').innerText = '£' + finalTotal.toFixed(2);
+      
+      const statusBadge = document.getElementById('thresholdStatus');
+      if (accumulatedPrice < 50 && accumulatedPrice > 0) {
+        statusBadge.innerText = "Minimum Base Rate Applied";
+        statusBadge.className = "badge bg-secondary small mb-3";
+      } else if (accumulatedPrice >= 50) {
+        statusBadge.innerText = "Threshold Exceeded (Standard Metering)";
+        statusBadge.className = "badge bg-success small mb-3";
+      } else {
+        statusBadge.innerText = "Minimum Base Rate Applied";
+        statusBadge.className = "badge bg-secondary small mb-3";
+      }
     }
-  }
 
-  inputs.forEach(id => {
-    document.getElementById(id).addEventListener('input', calculateTotal);
+    inputs.forEach(id => {
+      const inputEl = document.getElementById(id);
+      if (inputEl) {
+        inputEl.addEventListener('input', calculateTotal);
+      }
+    });
   });
 </script>
