@@ -1,244 +1,242 @@
-<% layout('layouts/boilerplate')%>
-        <style>
-        body {
-            background-color: #121212;
-            color: #e9ecef;
-            scroll-behavior: smooth;
-        }
+<% layout('layouts/boilerplate') %>
 
-        /* HERO */
-        .hero {
-            min-height: 90vh;
-            background: linear-gradient(135deg, #1c1f24, #0f1115);
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding: 5rem 1rem;
-        }
+<style>
+  body {
+    background-color: #0f111a;
+    color: #e2e8f0;
+    scroll-behavior: smooth;
+  }
 
-        .hero-content {
-            max-width: 800px;
-        }
+  /* HERO UPGRADE */
+  .hero {
+    min-height: 85vh;
+    background: linear-gradient(135deg, #161925 0%, #0b0c12 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 6rem 0;
+    border-bottom: 1px solid #222533;
+  }
 
-        .hero h1 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-        }
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #fff;
+  }
 
-        .hero p.lead {
-            font-size: 1.4rem;
-            color: #ced4da;
-        }
+  .hero-accent {
+    color: #ff4a3d;
+  }
 
-        /* Qualification badge */
-        .qualification-badge {
-            position: absolute;
-            top: 2rem;
-            right: 20rem;
-            width: 10rem;
-            height: 10rem;
-        }
+  /* Badge Floating Layout */
+  .badge-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-        .qualification-badge img{
-            width: 15rem;
-            height: 15rem;
-        }
-
-@media only screen and (max-width: 1400px) { 
-  .qualification-badge { 
-    display: none; 
-  } 
-}
-
-
-        /* Sections */
-        section {
-            padding: 4.5rem 1rem;
-        }
-
-        .bg-alt {
-            background-color: #181b20;
-        }
-
-        /* Images */
-        .image-container {
+  .qualification-badge-img {
     width: 100%;
-    height: 320px;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-}
+    max-width: 260px;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+  }
 
-.image-container img {
+  .qualification-badge-img:hover {
+    transform: scale(1.03);
+  }
+
+  /* Structured Content Rows */
+  section {
+    padding: 6rem 0;
+  }
+
+  .bg-alt {
+    background-color: #161925;
+    border-top: 1px solid #222533;
+    border-bottom: 1px solid #222533;
+  }
+
+  .image-container {
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    border: 1px solid #222533;
+  }
+
+  .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-}
-        /* Floating contact button */
-        .contact-fab {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 1000;
-        }
+  }
 
-        .contact-fab a {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
-        }
-    </style>
-</head>
-<body>
+  .text-muted-dark {
+    color: #94a3b8;
+  }
 
-<!-- HERO -->
+  /* Custom Action Buttons */
+  .btn-red {
+    background-color: #bd2c1d;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-red:hover {
+    background-color: #ff4a3d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 74, 61, 0.4);
+  }
+
+  .btn-outline-custom {
+    border: 1px solid #222533;
+    color: #e2e8f0;
+    background-color: #0b0c12;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-outline-custom:hover {
+    border-color: #ff4a3d;
+    color: #fff;
+  }
+
+  /* Floating Action Button */
+  .contact-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+
+  .contact-fab a {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: #bd2c1d;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transition: all 0.2s ease;
+  }
+
+  .contact-fab a:hover {
+    background-color: #ff4a3d;
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- HERO LAYOUT -->
 <div class="hero">
-    <div class="qualification-badge">
-    <a href="https://digitalcredentials.cityandguilds.com/884ad82f-6216-4f24-b324-4a1b8c1dedd6#acc.cP7GNbjJ"  target="_blank">
-        <img src="CityGuildsLevel3Award.png" alt="City Guilds Level 3 Award in the in-service inspection and testing of electrical equipment.">
-    </a>
-    </div>
-
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="fw-bold">CamJ PAT Testing</h1>
-            <p class="lead mt-4">
-                Certified Testing by People Who Care.
-            </p>
-            <p class="mt-4">
-                Helping businesses, landlords, and organisations meet their
-                electrical safety obligations with clear reporting and reliable testing.
-            </p>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="fw-bold mb-3">Cam<span class="hero-accent">J Pat Testing</span></h1>
+        <p class="lead text-white-50 fs-4 mb-4">Reliable, Honest, Fair.</p>
+        <p class="text-muted-dark mb-4 fs-5">
+          Helping businesses, landlords, and organizations throughout Maidstone and Kent meet their statutory electrical safety requirements with precision, transparent metering, and infallible compliance reports.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+          <a href="/pricing" class="btn btn-red shadow-sm">💰 View Rates &amp; Estimate Cost</a>
+          <a href="/contact" class="btn btn-outline-custom">📅 Request Appointment</a>
         </div>
+      </div>
+      <div class="col-lg-5 text-center badge-wrapper">
+        <a href="https://digitalcredentials.cityandguilds.com/884ad82f-6216-4f24-b324-4a1b8c1dedd6#acc.cP7GNbjJ" target="_blank" rel="noopener">
+          <img src="CityGuildsLevel3Award.png" class="qualification-badge-img" alt="City &amp; Guilds Level 3 Award Verification Check.">
+        </a>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- SECTION 1 -->
+<!-- SECTION 1: LEGISLATION FUNNEL -->
 <section>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <div class="image-container"><img src="/images/Tester.jpg" alt=""></div>
-            </div>
-            <div class="col-md-6">
-                <h2>Why you need PAT / EET? </h2>
-                <p>
-                    PAT / EET testing and tagging is the easist way to insure the safety of your employees and the public. You will also be complient with the following legislations: 
-                </p>
-                <p>
-                <ul>
-                <li><b><a href="https://www.legislation.gov.uk/ukpga/1974/37/introduction"  target="_blank">HSWA 1974</a></b> - This act puts a duty of care upon both the employer and the employees to ensure the safety of all persons using the work premises. (Includes the self-employed)</li>
-                <li><b><a href="https://www.legislation.gov.uk/uksi/1998/2306/introduction"  target="_blank">PUWER 1998</a></b> - These Regulations state that "Every employer shall ensure that work equipment is so constructed or adapted as to be suitable for the purpose for which it is used or provided".</li>
-                <li><b><a href="https://www.legislation.gov.uk/uksi/1989/635/introduction"  target="_blank">EAWR 1989</a></b> - Employers are required to have electrical systems constructed in a way that prevents danger. Maintain the electrical systems and carry out inspections to insure electrical safety.</li>
-                </ul>
-                </p>
-            </div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="/images/Tester.jpg" alt="Calibrated PAT hardware executing asset safety diagnostic traces.">
         </div>
+      </div>
+      <div class="col-md-6">
+        <span class="text-uppercase tracking-wider small fw-bold text-danger" style="color: #ff4a3d !important;">Safety Regulations</span>
+        <h2 class="fw-bold text-white mt-1 mb-3">Why Is Testing Essential?</h2>
+        <p class="text-muted-dark">
+          In-service electrical safety screening is the most direct method to preserve the integrity of your property, your workforce, and insurance coverage. Our testing framework keeps your workplace fully aligned with UK statutory regulations:
+        </p>
+        <ul class="list-unstyled d-flex flex-column gap-2 text-muted-dark mb-4">
+          <li><strong>⚡ HSWA 1974</strong> — General duty of care obligations on structural workplace safety rules.</li>
+          <li><strong>⚡ EAWR 1989</strong> — Mandatory systems maintenance to eliminate shock or fire hazards.</li>
+          <li><strong>⚡ PUWER 1998</strong> — Suitability screening ensuring industrial gear remains fit for purpose.</li>
+        </ul>
+        <a href="/pat-info" class="btn btn-outline-custom btn-sm">📖 Read Full Legislation Guidelines</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- SECTION 2 -->
+<!-- SECTION 2: QUALIFICATIONS FUNNEL -->
 <section class="bg-alt">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 order-md-2 mb-4 mb-md-0">
-                <div class="image-container"><img src="/images/certificate.jpg" alt=""></div>
-            </div>
-            <div class="col-md-6 order-md-1">
-                <h2>What makes me qualified</h2>
-                <p>
-                    I have obtained a <a href="https://digitalcredentials.cityandguilds.com/884ad82f-6216-4f24-b324-4a1b8c1dedd6#acc.l5AoLacH"  target="_blank">"City & Guild Level 3 Award in the In-Service Inspection and Testing of Electrical Equipment"</a>. I have knowledge of the IET Code Of Practice and Electrical Regulations. I am qualified to preform:
-                </p>
-                <p>
-                    <ul>
-                      <li>Formal Visual Inspection</li>
-                      <li>Health And Safety Inspection</li>
-                      <li>Electrical Equipment Inspection</li>
-                      <li>Record Keeping</li>
-                      <li>Risk Assessments</li>
-                      <li>Test Electrical Equipment</li>
-                    </ul>
-                </p>
-            </div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6 order-md-2">
+        <div class="image-container">
+          <img src="/images/certificate.jpg" alt="Certified electrical inspector vetting site-ready hardware documentation logs.">
         </div>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <span class="text-uppercase tracking-wider small fw-bold text-danger" style="color: #ff4a3d !important;">Professional Trust</span>
+        <h2 class="fw-bold text-white mt-1 mb-3">Vetted & Qualified Expertise</h2>
+        <p class="text-muted-dark mb-4">
+          All equipment diagnostics are executed directly by a fully insured professional holding a City &amp; Guilds Level 3 Award in the In-Service Inspection and Testing of Electrical Equipment, complete with a clean, current Enhanced DBS check.
+        </p>
+        <div class="row g-2 mb-4 text-white-50 small">
+          <div class="col-sm-6">✓ Formal Visual Inspection</div>
+          <div class="col-sm-6">✓ Electrical Asset Diagnostics</div>
+          <div class="col-sm-6">✓ Compliance Record Keeping</div>
+          <div class="col-sm-6">✓ Structural Risk Assessments</div>
+        </div>
+        <a href="/contact" class="btn btn-outline-custom btn-sm">🎓 View Qualifications &amp; Gear Specs</a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- SECTION 3 -->
+<!-- SECTION 3: PROCESS FUNNEL -->
 <section>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <div class="image-container"><img src="/images/stickerBackground.jpg" alt=""></div>
-            </div>
-            <div class="col-md-6">
-                <h2>What I will do for you</h2>
-                <p>
-                    I will perform in-service inspection, testing, tagging, and logging of electrical equipment in your place of business. I will carry out a visual inspection, a risk assessment, and, if necessary, an electrical test. The items will then be labelled with a serialised sticker and logged accordingly.
-                </p>
-                <p>
-                    I am constantly working to improve this process and make it as efficient as possible. Once I have finished, you will receive a certificate listing every item that was tested, the results of the tests.
-                </p>
-                <p>
-                  If agreed beforehand, I can also perform basic repairs to defective items I find (such as changing defective fuses, rewiring plugs, and lead shortening).
-                </p>
-            </div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img src="/images/stickerBackground.jpg" alt="Serialized compliance sticker applied cleanly to an asset pass tag bracket.">
         </div>
+      </div>
+      <div class="col-md-6">
+        <span class="text-uppercase tracking-wider small fw-bold text-danger" style="color: #ff4a3d !important;">Transparent Workflow</span>
+        <h2 class="fw-bold text-white mt-1 mb-3">What We Provide For Your Business</h2>
+        <p class="text-muted-dark mb-4">
+          We perform complete logging, tracking, testing, and labeling workflows using premium Seaward and Metrel analytical rigs. Upon finishing your evaluation, you will be issued a full digital compliance certificate containing complete serial breakdowns of every asset evaluated for your business insurance records.
+        </p>
+        <a href="/pricing" class="btn btn-red">📊 Calculate Your Estimated Cost Now</a>
+      </div>
     </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="bg-alt">
-    <div class="container text-center">
-        <h2 class="mb-4">Contact Information</h2>
-        <p>
-    <strong>Phone:</strong>
-    <a href="#contact"
-       onclick="handleContactClick(event)"
-       aria-label="Call CamJ Electrical Compliance"
-       title="Call us">
-        01622 278 135
-    </a>
-</p>
-
-        <p>
-    <strong>Email:</strong>
-    <a href="mailto:Contact@camj.uk"
-       aria-label="Email CamJ Electrical Compliance"
-       title="Email us">
-        Contact@CamJ.uk
-    </a>
-</p>
-
-        <p><strong>Service Area:</strong> Maidstone and Wider Kent Area.</p>
-    </div>
+  </div>
 </section>
 
 <!-- FLOATING CONTACT BUTTON -->
 <div class="contact-fab">
-    <a href="#contact"
-       class="btn btn-primary"
-       onclick="handleContactClick(event)"
-       aria-label="Call CamJ Electrical Compliance"
-       title="Call us">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-</svg>
-    </a>
+  <a href="/contact" class="text-white d-flex align-items-center justify-content-center" aria-label="Navigate to contact page" title="Contact Us">
+    ✉️
+  </a>
 </div>
-
-<script>
-function handleContactClick(event) {
-    const isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
-
-    if (isMobile) {
-        event.preventDefault();
-        window.location.href = "tel:+441622278135";
-    }
-}
-</script>
