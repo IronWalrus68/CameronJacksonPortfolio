@@ -1,0 +1,206 @@
+<% layout('layouts/boilerplate') %>
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f111a;
+    color: #e2e8f0;
+  }
+  .hero-contact {
+    background: linear-gradient(135deg, #bd2c1d 0%, #610d05 100%);
+    color: white;
+    padding: 5rem 0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  .contact-card {
+    background: #161925;
+    border: 1px solid #222533;
+    border-radius: 1.25rem;
+  }
+  .info-block {
+    background: #161925;
+    border: 1px solid #222533;
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+  }
+  .accent-border {
+    border-left: 4px solid #bd2c1d;
+  }
+  .contact-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .contact-link:hover {
+    color: #ff4a3d;
+  }
+  .brand-link {
+    color: #ff4a3d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+  }
+  .brand-link:hover {
+    color: #ff7368;
+    text-decoration: underline;
+  }
+  .text-muted-dark {
+    color: #94a3b8;
+  }
+  .icon-circle {
+    font-size: 1.25rem;
+    color: #ff4a3d;
+    background-color: #0b0c12;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #31364c;
+  }
+  .capability-badge {
+    background-color: #0b0c12;
+    border: 1px solid #222533;
+    color: #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .capability-badge span {
+    color: #ff4a3d;
+  }
+  .btn-outline-red {
+    border: 1px solid #bd2c1d;
+    color: #fff;
+    transition: all 0.2s ease;
+  }
+  .btn-outline-red:hover {
+    background-color: #bd2c1d;
+    color: #fff;
+  }
+</style>
+
+<!-- Section: Hero Banner -->
+<header class="hero-contact text-center shadow-sm">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">Contact & Qualifications</h1>
+    <p class="lead mx-auto text-white-50" style="max-width: 650px;">
+      Get in touch today to secure your workplace compliance. Learn more about our industry certifications, safety equipment standards, and local service coverage.
+    </p>
+  </div>
+</header>
+
+<main class="container my-5">
+  <div class="row g-4">
+    
+    <!-- Left Column: Contact Details Grid -->
+    <div class="col-lg-5">
+      <div class="contact-card p-4 shadow-sm h-100">
+        <h2 class="h4 fw-bold text-white mb-4">Contact Information</h2>
+        
+        <div class="d-flex flex-column gap-4">
+          <!-- Phone Block -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="icon-circle">📞</div>
+            <div>
+              <span class="small text-muted-dark d-block text-uppercase fw-semibold tracking-wide">Phone</span>
+              <a href="tel:01622278135" class="fs-5 fw-bold contact-link">01622 278 135</a>
+            </div>
+          </div>
+
+          <!-- Email Block -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="icon-circle">✉️</div>
+            <div>
+              <span class="small text-muted-dark d-block text-uppercase fw-semibold tracking-wide">Email</span>
+              <a href="mailto:Contact@CamJ.uk" class="fs-5 fw-bold contact-link">Contact@CamJ.uk</a>
+            </div>
+          </div>
+
+          <!-- Service Area Block -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="icon-circle">📍</div>
+            <div>
+              <span class="small text-muted-dark d-block text-uppercase fw-semibold tracking-wide">Service Area</span>
+              <span class="fs-5 fw-bold text-white">Maidstone and Wider Kent Area</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Booking and Calling Call to Action -->
+        <div class="mt-5 p-3 rounded text-center" style="background-color: #0b0c12; border: 1px dashed #31364c;">
+          <p class="small text-muted-dark mb-3">Ready to book your equipment inspection?</p>
+          <div class="d-flex flex-column gap-2">
+            <a href="/blank" class="btn w-100 fw-bold py-2 text-white" style="background-color: #bd2c1d; border-radius: 0.75rem;">
+              📅 Request an Appointment
+            </a>
+            <a href="tel:01622278135" class="btn btn-outline-red w-100 fw-bold py-2" style="border-radius: 0.75rem;">
+              📞 Call Now: 01622 278 135
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Professional Qualifications & Testing Equipment -->
+    <div class="col-lg-7 d-flex flex-column gap-4">
+      
+      <!-- Qualifications Box -->
+      <div class="info-block accent-border shadow-sm">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <span class="fs-3">🎓</span>
+          <h2 class="h4 fw-bold text-white mb-0">Professional Qualifications</h2>
+        </div>
+        <h3 class="h6 fw-bold text-danger mb-3" style="color: #ff4a3d !important;">City & Guilds Level 3 Certified & Fully Vetted</h3>
+        
+        <p class="text-muted-dark mb-3">
+          Our services are grounded in rigorous technical standards, holding the official <a href="https://digitalcredentials.cityandguilds.com/884ad82f-6216-4f24-b324-4a1b8c1dedd6#acc.cP7GNbjJ" target="_blank" rel="noopener" class="brand-link">City & Guilds Level 3 Award in the In-Service Inspection and Testing of Electrical Equipment</a>. Backed by extensive working knowledge of the <strong>IET Code of Practice</strong> and current UK statutory <strong>Electrical Regulations</strong>, we ensure your workplace asset ledger meets strict compliance thresholds.
+        </p>
+
+        <!-- Security Screening and DBS text -->
+        <p class="text-muted-dark mb-4">
+          🔒 <strong>Site Access Security & Trust:</strong> For your peace of mind and to meet strict site-access requirements, I hold a fully clear, current <strong>Enhanced DBS Check</strong>. Furthermore, I have successfully undergone rigorous background vetting and verification processes via <a href="https://securescreeningservices.com" target="_blank" rel="noopener" class="brand-link">securescreeningservices.com</a>, making me fully cleared to operate inside high-security environments, care facilities, and schools.
+        </p>
+        
+        <h4 class="h6 fw-bold text-white mb-3">Core Competencies & Authorities:</h4>
+        <div class="row g-2">
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Formal Visual Inspection</div></div>
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Health &amp; Safety Inspection</div></div>
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Electrical Equipment Inspection</div></div>
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Test Electrical Equipment</div></div>
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Compliant Record Keeping</div></div>
+          <div class="col-sm-6"><div class="capability-badge"><span>✓</span> Workplace Risk Assessments</div></div>
+        </div>
+      </div>
+
+      <!-- Equipment Box -->
+      <div class="info-block accent-border shadow-sm">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <span class="fs-3">🧰</span>
+          <h2 class="h4 fw-bold text-white mb-0">Our Testing Equipment</h2>
+        </div>
+        <p class="text-muted-dark mb-3">
+          To maintain absolute precision and detailed digital data logs for your business, we only deploy advanced industry hardware:
+        </p>
+        <ul class="list-unstyled text-muted-dark mb-3 d-flex flex-column gap-2 ps-1">
+          <li class="d-flex align-items-start gap-2">
+            <span style="color: #ff4a3d;">⚡</span> 
+            <span><strong>Seaward PrimeTest 500+</strong> — Premium downloading testing asset for advanced system automation data tracing.</span>
+          </li>
+          <li class="d-flex align-items-start gap-2">
+            <span style="color: #ff4a3d;">⚡</span> 
+            <span><strong>Metrel DeltaPAT MI 3309 BT</strong> — Multifunctional handheld device optimized for rapid, comprehensive data profiling.</span>
+          </li>
+        </ul>
+        <p class="small text-muted-dark border-top border-secondary pt-3 mt-2 mb-0">
+          🔍 <strong>Calibration & Quality Assurance:</strong> Both devices are strictly calibrated locally at <a href="https://www.microprecisionstore.com/" target="_blank" rel="noopener" class="brand-link">Micro Precision</a> (formerly Alpha Electronics) to safeguard absolute compliance limits, providing you with infallible certification records that protect your business and insurance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</main>

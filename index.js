@@ -31,6 +31,10 @@ app.get('/pat-info', (req, res) => {
     const title = 'pat-info'
     res.render('pat-info', { title });
 });
+app.get('/contact', (req, res) => {
+    const title = 'contact'
+    res.render('contact', { title });
+});
 app.get('/blank', (req, res) => {
     const title = 'blank'
     res.render('blank', { title });
